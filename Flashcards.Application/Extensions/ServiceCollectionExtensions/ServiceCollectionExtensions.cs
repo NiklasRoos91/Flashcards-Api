@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using Flashcards.Application.Behaviors.LoggingBehavior;
+using Flashcards.Application.Behaviors.ValidationBehavior;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Flashcards.Application.Extensions.ServiceCollectionExtensions
@@ -10,6 +12,10 @@ namespace Flashcards.Application.Extensions.ServiceCollectionExtensions
             var assembly = typeof(ServiceCollectionExtensions).Assembly;
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(assembly));
             services.AddAutoMapper(assembly);
+
+            // Register all MediatR behaviors
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
             return services;
         }
