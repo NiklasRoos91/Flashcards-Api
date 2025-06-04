@@ -14,8 +14,8 @@ namespace Flashcards.Application.Extensions.ServiceCollectionExtensions
             services.AddAutoMapper(assembly);
 
             // Register all MediatR behaviors
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
 
             return services;
         }
