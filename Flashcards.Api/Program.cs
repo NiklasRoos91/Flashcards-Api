@@ -1,4 +1,5 @@
 using Flashcards.Infrastructure.Extensions.ServiceCollectionExtension;
+using Flashcards.Application.Extensions.ServiceCollectionExtensions;
 
 namespace Flashcards.Api
 {
@@ -10,6 +11,7 @@ namespace Flashcards.Api
 
             // Add services to the container.
             builder.Services.AddInfrastructure(builder.Configuration);
+            builder.Services.AddApplication();
 
 
             builder.Services.AddControllers();
