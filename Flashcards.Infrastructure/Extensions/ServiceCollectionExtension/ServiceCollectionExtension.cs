@@ -1,4 +1,6 @@
-﻿using Flashcards.Infrastructure.Presistence.FlashcardsDbContext;
+﻿using Flashcards.Domain.Interfaces;
+using Flashcards.Infrastructure.Presistence.FlashcardsDbContext;
+using Flashcards.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +13,8 @@ namespace Flashcards.Infrastructure.Extensions.ServiceCollectionExtension
         {
             services.AddDbContext<FlashcardsDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("FlashcardsApiDb")));
+
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
             return services;
         }
