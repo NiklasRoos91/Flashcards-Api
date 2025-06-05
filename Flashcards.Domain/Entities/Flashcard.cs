@@ -7,6 +7,6 @@
         public string Answer { get; set; } = null!;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public Guid FlashcardListId { get; set; }
-        public FlashcardList FlashcardList { get; set; } = null!; 
+        public FlashcardList FlashcardList { get; set; } = null!;
     }
 }

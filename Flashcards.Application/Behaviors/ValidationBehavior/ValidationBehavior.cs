@@ -27,8 +27,7 @@ namespace Flashcards.Application.Behaviors.ValidationBehavior
                 _validators.Select(v => v.ValidateAsync(context, cancellationToken)));
 
             // Samlar alla felmeddelanden från valideringsresultaten
-            var failures = _validators
-                .Select(v => v.Validate(context))
+            var failures = validationResults
                 .SelectMany(result => result.Errors)
                 .Where(f => f is not null)
                 .ToList();
