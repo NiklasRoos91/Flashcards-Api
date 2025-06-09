@@ -1,5 +1,6 @@
 ﻿using Flashcards.Api.Helpers;
 using Flashcards.Application.Features.UserFeature.Commands.DeleteUser;
+using Flashcards.Application.Features.UserFeature.Commands.UpdateCurrentUser;
 using Flashcards.Application.Features.UserFeature.DTOs;
 using Flashcards.Application.Features.UserFeature.Queries.GetCurrentUser;
 using MediatR;
@@ -53,6 +54,33 @@ namespace Flashcards.Api.Controllers
             }
 
             return NotFound(result);
+        }
+
+        [HttpPatch("current")]
+        [Authorize(Roles = "User")]
+        public async Task<IActionResult> UpdateCurrentUser([FromBody] UpdateCurrentUserDto updateCurrentUserDto, CancellationToken cancellationToken)
+        {
+            if (updateCurrentUserDto == null)
+            {
+                return BadRequest("Update data is required.");
+            }
+
+            var userId = UserHelper.GetCurrentUserId(User);
+
+            var command = new UpdateCurrentUserCommand
+            {
+                UpdateCurrentUserDto = updateCurrentUserDto,
+                UserId = userId
+            };
+
+            var result = await _mediator.Send(command, cancellationToken);
+
+            if (result.IsSuccess)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
         }
     }
 }
