@@ -1,7 +1,7 @@
 ﻿using Flashcards.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Flashcards.Infrastructure.Presistence.FlashcardsDbContext
+namespace Flashcards.Infrastructure.Presistence
 {
     public class FlashcardsDbContext : DbContext
     {

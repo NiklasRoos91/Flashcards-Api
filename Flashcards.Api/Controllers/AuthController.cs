@@ -1,4 +1,5 @@
-﻿using Flashcards.Application.Features.AuthenticationFeature.Commands.RegisterUserCommand;
+﻿using Flashcards.Application.Features.AuthenticationFeature.Commands.LoginCommand;
+using Flashcards.Application.Features.AuthenticationFeature.Commands.RegisterUserCommand;
 using Flashcards.Application.Features.AuthenticationFeature.DTOs;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -17,7 +18,7 @@ namespace Flashcards.Api.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] RegisterUserCommand command)
+        public async Task<ActionResult<RegisterUserResponseDto>> Register([FromBody] RegisterUserCommand command)
         {
             if (command == null || command.RegisterUserDto == null)
             {
@@ -32,6 +33,23 @@ namespace Flashcards.Api.Controllers
             }
 
             return BadRequest(result.ErrorMessage);
+        }
+
+        [HttpPost("login")]
+        public async Task<ActionResult<LoginUserResponseDto>> Login([FromBody] LoginCommand command)
+        {
+            if (command == null || command.LoginDto == null)
+            {
+                return BadRequest("Invalid login data.");
+            }
+            var result = await _mediator.Send(command);
+
+            if (result.IsSuccess)
+            {
+                return Ok(result.Data);
+            }
+
+            return Unauthorized(result.ErrorMessage);
         }
     }
 }
