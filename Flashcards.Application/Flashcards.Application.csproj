@@ -22,7 +22,6 @@
   <ItemGroup>
     <Folder Include="Features\AuthenticationFeature\Queries\" />
     <Folder Include="Features\FlashcardsFeature\" />
-    <Folder Include="Features\UserFeature\Commands\DeleteUser\" />
   </ItemGroup>
 
 </Project>

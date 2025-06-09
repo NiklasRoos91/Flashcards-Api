@@ -1,4 +1,5 @@
 ﻿using Flashcards.Api.Helpers;
+using Flashcards.Application.Features.UserFeature.Commands.DeleteUser;
 using Flashcards.Application.Features.UserFeature.DTOs;
 using Flashcards.Application.Features.UserFeature.Queries.GetCurrentUser;
 using MediatR;
@@ -30,10 +31,28 @@ namespace Flashcards.Api.Controllers
 
             if (result.IsSuccess)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
 
-            return NotFound(result.ErrorMessage);
+            return NotFound(result);
+        }
+
+        [HttpDelete("current")]
+        [Authorize(Roles = "User")]
+        public async Task<IActionResult> DeleteCurrentUser(CancellationToken cancellationToken)
+        {
+            var userId = UserHelper.GetCurrentUserId(User);
+
+            var command = new DeleteCurrentUserCommand(userId);
+
+            var result = await _mediator.Send(command, cancellationToken);
+
+            if (result.IsSuccess)
+            {
+                return NoContent();
+            }
+
+            return NotFound(result);
         }
     }
 }
