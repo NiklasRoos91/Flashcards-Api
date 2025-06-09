@@ -6,7 +6,7 @@ using Flashcards.Domain.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 
-namespace Flashcards.Application.Features.AuthenticationFeature.Commands.RegisterUserCommand
+namespace Flashcards.Application.Features.AuthenticationFeature.Commands.RegisterUser
 {
     public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand, OperationResult<RegisterUserResponseDto>>
     {

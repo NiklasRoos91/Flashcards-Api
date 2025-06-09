@@ -1,7 +1,7 @@
 ﻿using Flashcards.Application.Features.AuthenticationFeature.DTOs;
 using FluentValidation;
 
-namespace Flashcards.Application.Features.AuthenticationFeature.Commands.RegisterUserCommand
+namespace Flashcards.Application.Features.AuthenticationFeature.Commands.RegisterUser
 {
     public class RegisterUserCommandValidator : AbstractValidator<RegisterUserCommand>
     {

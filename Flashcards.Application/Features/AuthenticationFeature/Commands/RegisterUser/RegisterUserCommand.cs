@@ -2,7 +2,7 @@
 using Flashcards.Application.Features.AuthenticationFeature.DTOs;
 using MediatR;
 
-namespace Flashcards.Application.Features.AuthenticationFeature.Commands.RegisterUserCommand
+namespace Flashcards.Application.Features.AuthenticationFeature.Commands.RegisterUser
 {
     public class RegisterUserCommand : IRequest<OperationResult<RegisterUserResponseDto>>
     {
