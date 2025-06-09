@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Flashcards.Infrastructure.Repositories
 {
-    class UserRepository : IUserRepository
+    public class UserRepository : IUserRepository
     {
         private readonly FlashcardsDbContext _context;
 

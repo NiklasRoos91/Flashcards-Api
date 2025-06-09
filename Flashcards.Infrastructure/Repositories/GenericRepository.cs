@@ -27,7 +27,7 @@ namespace Flashcards.Infrastructure.Repositories
             return await _dbSet.ToListAsync(cancellationToken);
         }
 
-        public async Task<T> GetByIdAsync(int id, CancellationToken cancellationToken = default)
+        public async Task<T> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             return await _dbSet.FindAsync(id, cancellationToken) ?? throw new KeyNotFoundException($"Entity with ID {id} not found.");
         }
@@ -39,7 +39,7 @@ namespace Flashcards.Infrastructure.Repositories
             await _context.SaveChangesAsync(cancellationToken);
         }
 
-        public async Task<bool> DeleteAsync(int id, CancellationToken cancellationToken = default)
+        public async Task<bool> DeleteAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var entity = await GetByIdAsync(id, cancellationToken);
 
@@ -48,7 +48,7 @@ namespace Flashcards.Infrastructure.Repositories
             return true;
         }
 
-        public async Task<bool> ExistsAsync(int id, CancellationToken cancellationToken = default)
+        public async Task<bool> ExistsAsync(Guid id, CancellationToken cancellationToken = default)
         {
             return await _dbSet.FindAsync(id, cancellationToken) != null;
         }
