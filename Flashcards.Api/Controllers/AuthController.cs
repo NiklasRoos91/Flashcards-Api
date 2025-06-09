@@ -18,14 +18,14 @@ namespace Flashcards.Api.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult<RegisterUserResponseDto>> Register([FromBody] RegisterUserCommand command)
+        public async Task<ActionResult<RegisterUserResponseDto>> Register([FromBody] RegisterUserCommand command, CancellationToken cancellationToken)
         {
             if (command == null || command.RegisterUserDto == null)
             {
                 return BadRequest("Invalid registration data.");
             }
 
-            var result = await _mediator.Send(command);
+            var result = await _mediator.Send(command, cancellationToken);
 
             if (result.IsSuccess)
             {
@@ -36,13 +36,13 @@ namespace Flashcards.Api.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<LoginUserResponseDto>> Login([FromBody] LoginCommand command)
+        public async Task<ActionResult<LoginUserResponseDto>> Login([FromBody] LoginCommand command, CancellationToken cancellationToken)
         {
             if (command == null || command.LoginDto == null)
             {
                 return BadRequest("Invalid login data.");
             }
-            var result = await _mediator.Send(command);
+            var result = await _mediator.Send(command, cancellationToken);
 
             if (result.IsSuccess)
             {
