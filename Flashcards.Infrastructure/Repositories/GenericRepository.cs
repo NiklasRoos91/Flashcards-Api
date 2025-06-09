@@ -41,7 +41,12 @@ namespace Flashcards.Infrastructure.Repositories
 
         public async Task<bool> DeleteAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            var entity = await GetByIdAsync(id, cancellationToken);
+            var entity = await _dbSet.FindAsync(id, cancellationToken);
+
+            if (entity == null)
+            {
+                return false;
+            }
 
             _dbSet.Remove(entity);
             await _context.SaveChangesAsync(cancellationToken);
