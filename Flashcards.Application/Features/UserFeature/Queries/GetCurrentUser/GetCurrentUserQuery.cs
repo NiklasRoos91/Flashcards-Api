@@ -2,7 +2,7 @@
 using Flashcards.Application.Features.UserFeature.DTOs;
 using MediatR;
 
-namespace Flashcards.Application.Features.UserFeature.Queries.GetCurrentUserQuery
+namespace Flashcards.Application.Features.UserFeature.Queries.GetCurrentUser
 {
     public class GetCurrentUserQuery : IRequest<OperationResult<GetUserInfoDto>>
     {

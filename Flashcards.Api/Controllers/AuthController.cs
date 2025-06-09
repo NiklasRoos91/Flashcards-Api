@@ -1,5 +1,5 @@
-﻿using Flashcards.Application.Features.AuthenticationFeature.Commands.LoginCommand;
-using Flashcards.Application.Features.AuthenticationFeature.Commands.RegisterUserCommand;
+﻿using Flashcards.Application.Features.AuthenticationFeature.Commands.Login;
+using Flashcards.Application.Features.AuthenticationFeature.Commands.RegisterUser;
 using Flashcards.Application.Features.AuthenticationFeature.DTOs;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

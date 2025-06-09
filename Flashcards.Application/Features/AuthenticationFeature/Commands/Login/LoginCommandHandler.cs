@@ -6,7 +6,7 @@ using Flashcards.Domain.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 
-namespace Flashcards.Application.Features.AuthenticationFeature.Commands.LoginCommand
+namespace Flashcards.Application.Features.AuthenticationFeature.Commands.Login
 {
     public class LoginCommandHandler : IRequestHandler<LoginCommand, OperationResult<LoginUserResponseDto>>
     {

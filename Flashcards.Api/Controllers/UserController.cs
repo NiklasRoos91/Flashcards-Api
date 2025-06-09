@@ -1,6 +1,6 @@
 ﻿using Flashcards.Api.Helpers;
 using Flashcards.Application.Features.UserFeature.DTOs;
-using Flashcards.Application.Features.UserFeature.Queries.GetCurrentUserQuery;
+using Flashcards.Application.Features.UserFeature.Queries.GetCurrentUser;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

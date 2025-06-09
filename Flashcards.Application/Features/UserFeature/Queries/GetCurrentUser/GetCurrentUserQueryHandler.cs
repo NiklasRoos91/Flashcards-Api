@@ -5,7 +5,7 @@ using Flashcards.Domain.Entities;
 using Flashcards.Domain.Interfaces;
 using MediatR;
 
-namespace Flashcards.Application.Features.UserFeature.Queries.GetCurrentUserQuery
+namespace Flashcards.Application.Features.UserFeature.Queries.GetCurrentUser
 {
     public class GetCurrentUserQueryHandler : IRequestHandler<GetCurrentUserQuery, OperationResult<GetUserInfoDto>>
     {
