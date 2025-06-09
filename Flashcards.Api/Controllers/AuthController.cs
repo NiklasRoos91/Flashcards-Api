@@ -29,10 +29,10 @@ namespace Flashcards.Api.Controllers
 
             if (result.IsSuccess)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
 
-            return BadRequest(result.ErrorMessage);
+            return BadRequest(result);
         }
 
         [HttpPost("login")]
@@ -46,10 +46,10 @@ namespace Flashcards.Api.Controllers
 
             if (result.IsSuccess)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
 
-            return Unauthorized(result.ErrorMessage);
+            return Unauthorized(result);
         }
     }
 }
