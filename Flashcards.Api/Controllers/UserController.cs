@@ -1,7 +1,8 @@
 ﻿using Flashcards.Api.Helpers;
 using Flashcards.Application.Features.UserFeature.Commands.DeleteUser;
 using Flashcards.Application.Features.UserFeature.Commands.UpdateCurrentUser;
-using Flashcards.Application.Features.UserFeature.DTOs;
+using Flashcards.Application.Features.UserFeature.DTOs.Requests;
+using Flashcards.Application.Features.UserFeature.DTOs.Responses;
 using Flashcards.Application.Features.UserFeature.Queries.GetCurrentUser;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Flashcards.Application.Commons.OperationResult;
-using Flashcards.Application.Features.UserFeature.DTOs;
+using Flashcards.Application.Features.UserFeature.DTOs.Responses;
 using Flashcards.Domain.Entities;
 using Flashcards.Domain.Interfaces;
 using MediatR;

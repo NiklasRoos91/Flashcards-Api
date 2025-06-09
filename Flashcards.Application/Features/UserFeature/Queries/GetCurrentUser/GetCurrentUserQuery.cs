@@ -1,5 +1,5 @@
 ﻿using Flashcards.Application.Commons.OperationResult;
-using Flashcards.Application.Features.UserFeature.DTOs;
+using Flashcards.Application.Features.UserFeature.DTOs.Responses;
 using MediatR;
 
 namespace Flashcards.Application.Features.UserFeature.Queries.GetCurrentUser

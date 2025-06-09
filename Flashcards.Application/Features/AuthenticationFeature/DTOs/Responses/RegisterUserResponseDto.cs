@@ -1,4 +1,4 @@
-﻿namespace Flashcards.Application.Features.AuthenticationFeature.DTOs
+﻿namespace Flashcards.Application.Features.AuthenticationFeature.DTOs.Responses
 {
     public class RegisterUserResponseDto
     {

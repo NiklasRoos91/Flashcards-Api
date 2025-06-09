@@ -1,6 +1,6 @@
-﻿namespace Flashcards.Application.Features.AuthenticationFeature.DTOs
+﻿namespace Flashcards.Application.Features.AuthenticationFeature.DTOs.Requests
 {
-    public class LoginDto
+    public class LoginUserDto
     {
         public string Email { get; set; } = null!;
         public string Password { get; set; } = null!;

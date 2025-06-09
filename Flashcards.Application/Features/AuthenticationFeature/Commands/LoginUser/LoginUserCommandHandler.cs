@@ -1,21 +1,21 @@
 ﻿using AutoMapper;
 using Flashcards.Application.Commons.OperationResult;
-using Flashcards.Application.Features.AuthenticationFeature.DTOs;
+using Flashcards.Application.Features.AuthenticationFeature.DTOs.Responses;
 using Flashcards.Domain.Entities;
 using Flashcards.Domain.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 
-namespace Flashcards.Application.Features.AuthenticationFeature.Commands.Login
+namespace Flashcards.Application.Features.AuthenticationFeature.Commands.LoginUser
 {
-    public class LoginCommandHandler : IRequestHandler<LoginCommand, OperationResult<LoginUserResponseDto>>
+    public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, OperationResult<LoginUserResponseDto>>
     {
         private readonly IUserRepository _repository;
         private readonly IMapper _mapper;
         private readonly IPasswordHasher<User> _passwordHasher;
         private readonly IJwtTokenGenerator _jwtTokenGenerator;
 
-        public LoginCommandHandler(
+        public LoginUserCommandHandler(
             IUserRepository repository,
             IMapper mapper,
             IPasswordHasher<User> passwordHasher,
@@ -27,7 +27,7 @@ namespace Flashcards.Application.Features.AuthenticationFeature.Commands.Login
             _jwtTokenGenerator = jwtTokenGenerator ?? throw new ArgumentNullException(nameof(jwtTokenGenerator));
         }
 
-        public async Task<OperationResult<LoginUserResponseDto>> Handle(LoginCommand request, CancellationToken cancellationToken)
+        public async Task<OperationResult<LoginUserResponseDto>> Handle(LoginUserCommand request, CancellationToken cancellationToken)
         {
             var user = await _repository.GetUserByEmailAsync(request.LoginDto.Email, cancellationToken);
 

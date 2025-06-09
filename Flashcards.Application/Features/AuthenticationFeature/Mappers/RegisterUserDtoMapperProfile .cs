@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
-using Flashcards.Application.Features.AuthenticationFeature.DTOs;
+using Flashcards.Application.Features.AuthenticationFeature.DTOs.Requests;
+using Flashcards.Application.Features.AuthenticationFeature.DTOs.Responses;
 using Flashcards.Domain.Entities;
 
 namespace Flashcards.Application.Features.AuthenticationFeature.Mappers

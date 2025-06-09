@@ -1,8 +1,9 @@
-﻿using FluentValidation;
+﻿using Flashcards.Application.Features.AuthenticationFeature.DTOs.Requests;
+using FluentValidation;
 
 namespace Flashcards.Application.Features.AuthenticationFeature.DTOs.Validators
 {
-    public class LoginDtoValidator : AbstractValidator<LoginDto>
+    public class LoginDtoValidator : AbstractValidator<LoginUserDto>
     {
         public LoginDtoValidator()
         {
