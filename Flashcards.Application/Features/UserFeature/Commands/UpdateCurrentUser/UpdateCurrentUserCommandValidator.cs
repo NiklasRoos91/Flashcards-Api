@@ -1,4 +1,4 @@
-﻿using Flashcards.Application.Features.UserFeature.DTOs;
+﻿using Flashcards.Application.Features.UserFeature.DTOs.Requests;
 using FluentValidation;
 
 namespace Flashcards.Application.Features.UserFeature.Commands.UpdateCurrentUser

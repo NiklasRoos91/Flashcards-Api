@@ -1,4 +1,4 @@
-﻿namespace Flashcards.Application.Features.UserFeature.DTOs
+﻿namespace Flashcards.Application.Features.UserFeature.DTOs.Responses
 {
     public class GetUserInfoDto
     {

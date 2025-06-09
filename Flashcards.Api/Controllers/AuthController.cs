@@ -1,6 +1,6 @@
-﻿using Flashcards.Application.Features.AuthenticationFeature.Commands.Login;
+﻿using Flashcards.Application.Features.AuthenticationFeature.Commands.LoginUser;
 using Flashcards.Application.Features.AuthenticationFeature.Commands.RegisterUser;
-using Flashcards.Application.Features.AuthenticationFeature.DTOs;
+using Flashcards.Application.Features.AuthenticationFeature.DTOs.Responses;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,38 +18,38 @@ namespace Flashcards.Api.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult<RegisterUserResponseDto>> Register([FromBody] RegisterUserCommand command, CancellationToken cancellationToken)
+        public async Task<ActionResult<RegisterUserResponseDto>> Register([FromBody] RegisterUserCommand command)
         {
             if (command == null || command.RegisterUserDto == null)
             {
                 return BadRequest("Invalid registration data.");
             }
 
-            var result = await _mediator.Send(command, cancellationToken);
+            var result = await _mediator.Send(command);
 
             if (result.IsSuccess)
             {
-                return Ok(result);
+                return Ok(result.Data);
             }
 
-            return BadRequest(result);
+            return BadRequest(result.ErrorMessage);
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<LoginUserResponseDto>> Login([FromBody] LoginCommand command, CancellationToken cancellationToken)
+        public async Task<ActionResult<LoginUserResponseDto>> Login([FromBody] LoginUserCommand command)
         {
             if (command == null || command.LoginDto == null)
             {
                 return BadRequest("Invalid login data.");
             }
-            var result = await _mediator.Send(command, cancellationToken);
+            var result = await _mediator.Send(command);
 
             if (result.IsSuccess)
             {
-                return Ok(result);
+                return Ok(result.Data);
             }
 
-            return Unauthorized(result);
+            return Unauthorized(result.ErrorMessage);
         }
     }
 }

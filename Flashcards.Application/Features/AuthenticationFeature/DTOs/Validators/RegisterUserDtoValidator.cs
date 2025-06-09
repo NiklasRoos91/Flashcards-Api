@@ -1,4 +1,4 @@
-﻿using Flashcards.Application.Features.UserFeature.DTOs.Validators;
+﻿using Flashcards.Application.Features.AuthenticationFeature.DTOs.Requests;
 using FluentValidation;
 
 namespace Flashcards.Application.Features.AuthenticationFeature.DTOs.Validators
@@ -24,25 +24,21 @@ namespace Flashcards.Application.Features.AuthenticationFeature.DTOs.Validators
                 .When(x => !string.IsNullOrWhiteSpace(x.Address))
                 .WithMessage("Address must be between 5 and 100 characters.");
 
-
             RuleFor(x => x.PhoneNumber)
                 .Matches(@"^\+?[0-9]{10,15}$")
                 .When(x => !string.IsNullOrWhiteSpace(x.PhoneNumber))
                 .WithMessage("Phone number must only contain digits and may start with '+'. No spaces or special characters are allowed. Example: +46701234567");
-
             RuleFor(x => x.Username)
                 .NotEmpty()
                 .WithMessage("Username is required.")
                 .Length(3, 50)
                 .WithMessage("Username must be between 3 and 50 characters.");
 
-
             RuleFor(x => x.Email)
                 .NotEmpty()
                 .WithMessage("Email is required.")
                 .EmailAddress()
                 .WithMessage("Email must be a valid email address.");
-
 
             RuleFor(x => x.Password)
                 .NotEmpty()

@@ -1,6 +1,6 @@
-﻿namespace Flashcards.Application.Features.UserFeature.DTOs
+﻿namespace Flashcards.Application.Features.UserFeature.DTOs.Requests
 {
-    public class UpdateCurrentUserResponseDto
+    public class UpdateCurrentUserDto
     {
         public string? FirstName { get; set; }
         public string? LastName { get; set; }

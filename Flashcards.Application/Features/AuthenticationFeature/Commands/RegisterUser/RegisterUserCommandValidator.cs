@@ -1,4 +1,4 @@
-﻿using Flashcards.Application.Features.AuthenticationFeature.DTOs;
+﻿using Flashcards.Application.Features.AuthenticationFeature.DTOs.Requests;
 using FluentValidation;
 
 namespace Flashcards.Application.Features.AuthenticationFeature.Commands.RegisterUser
