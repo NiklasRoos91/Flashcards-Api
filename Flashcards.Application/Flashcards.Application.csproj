@@ -21,7 +21,6 @@
 
   <ItemGroup>
     <Folder Include="Features\AuthenticationFeature\Queries\" />
-    <Folder Include="Features\FlashcardsFeature\Commands\CreateFlashcard\" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,6 @@
 ﻿using Flashcards.Api.Helpers;
 using Flashcards.Application.Commons.OperationResult;
+using Flashcards.Application.Features.FlashcardsFeature.Commands.CreateFlashcard;
 using Flashcards.Application.Features.FlashcardsFeature.Commands.CreateFlashcardList;
 using Flashcards.Application.Features.FlashcardsFeature.DTOs.Requests;
 using Flashcards.Application.Features.FlashcardsFeature.DTOs.Responses;
@@ -25,7 +26,24 @@ namespace Flashcards.Api.Controllers
         {
             var userId = UserHelper.GetCurrentUserId(User);
 
-            var command = new CreateFlashcardList(dto, userId);
+            var command = new CreateFlashcardListCommand(dto, userId);
+
+            var result = await _mediator.Send(command);
+
+            if (result.IsSuccess)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
+        [HttpPost("create-flashcard")]
+        public async Task<ActionResult<CreateFlashcardResponseDto>> CreateFlashcard([FromBody] CreateFlashcardDto dto, CancellationToken cancellationToken)
+        {
+            var userId = UserHelper.GetCurrentUserId(User);
+
+            var command = new CreateFlashcardCommand(dto, userId);
 
             var result = await _mediator.Send(command);
 
