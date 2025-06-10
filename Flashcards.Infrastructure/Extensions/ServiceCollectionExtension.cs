@@ -19,6 +19,7 @@ namespace Flashcards.Infrastructure.Extensions
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IFlashcardListRepository, FlashcardListRepository>();
 
             return services;
         }
