@@ -7,7 +7,7 @@ using MediatR;
 
 namespace Flashcards.Application.Features.FlashcardsFeature.Commands.CreateFlashcardList
 {
-    public class CreateFlashcardListCommandHandler : IRequestHandler<CreateFlashcardList, OperationResult<CreateFlashcardListResponseDto>>
+    public class CreateFlashcardListCommandHandler : IRequestHandler<CreateFlashcardListCommand, OperationResult<CreateFlashcardListResponseDto>>
     {
         private readonly IGenericRepository<FlashcardList> _flashcardListRepository;
         private readonly IMapper _mapper;
@@ -20,7 +20,7 @@ namespace Flashcards.Application.Features.FlashcardsFeature.Commands.CreateFlash
             _mapper = mapper;
         }
 
-        public async Task<OperationResult<CreateFlashcardListResponseDto>> Handle(CreateFlashcardList request, CancellationToken cancellationToken)
+        public async Task<OperationResult<CreateFlashcardListResponseDto>> Handle(CreateFlashcardListCommand request, CancellationToken cancellationToken)
         {
             try
             {
